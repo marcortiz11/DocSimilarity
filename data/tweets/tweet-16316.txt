@@ -1,0 +1,1 @@
+I've never regretted having a test for a well done Markdown editor: typora.io -

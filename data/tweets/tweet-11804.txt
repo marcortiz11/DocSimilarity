@@ -1,0 +1,1 @@
+The current temperature is -1.0 C. Humidity: 37.6 %. Pressure: 759.80 mm/hg.

@@ -1,0 +1,2 @@
+StokerX Periodic Notification for sensor "Ambient_01", current temperature is 260.0. 
+Time: 09:56:01
