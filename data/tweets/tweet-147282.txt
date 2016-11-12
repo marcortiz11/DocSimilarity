@@ -1,0 +1,1 @@
+@gazete_man It's easy. Sum is first or second digit in the "answer ".

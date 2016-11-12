@@ -1,0 +1,1 @@
+AngularFire 2 Object Observables - Reading Observable Objects from the Firebase Real-Time Database  - https://t.co/cSjLcJawoB

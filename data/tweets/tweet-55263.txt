@@ -1,0 +1,1 @@
+removeClass addClass not working multiple classNames https://t.co/kSg2XSgo9P

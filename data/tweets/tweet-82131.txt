@@ -1,0 +1,6 @@
+Assistant Store Manager  
+ch_client = "davidlee123";
+ch_width = 300;
+ch_height = 250;
+ch_type = "mpu";
+ch_sid ... https://t.co/oeDow2rzJI

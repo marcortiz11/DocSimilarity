@@ -1,0 +1,7 @@
+RT @Pablokz: if(criteria == null){
+   debate();
+}else{
+   try{
+     debate();
+   }catch(IllegalArgumentsException exc){
+     return false;…

@@ -1,0 +1,2 @@
+current weather in Dakar: clear sky, 28°C
+48% humidity, wind 5kmh, pressure 1009mb

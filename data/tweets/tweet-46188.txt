@@ -1,0 +1,1 @@
+#WindowsInsiders 14965 can't switch from Wi-Fi to mobile data, have to restart device, thought this was fixed long builds ago 😢

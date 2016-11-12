@@ -1,0 +1,1 @@
+Latency is the time in ms between the broker's server and your PC. The lower the latency the higher chances of making a profit you have.

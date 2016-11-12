@@ -1,0 +1,1 @@
+RT @rootkovska: Built OpenWRT firmware with all(?) the unverified wgets disabled, flashed to my router and.. it works! Feeling very l33t no…

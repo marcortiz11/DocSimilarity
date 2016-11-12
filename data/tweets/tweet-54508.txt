@@ -1,0 +1,1 @@
+@planetchili Just go with Ubuntu server. Has an ncurses menu to set up a LAMP stack right in the installer. Will work out of the box.

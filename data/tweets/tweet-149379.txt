@@ -1,0 +1,1 @@
+@WhatIWish 2.4.4 is the latest version, it should be available in the MAS as an update. I have not other tricks to force an update.

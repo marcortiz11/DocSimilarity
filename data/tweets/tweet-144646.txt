@@ -1,0 +1,1 @@
+Resources for getting started with Puppet Enterprise, all in one place. https://t.co/M7wD2qn7RV

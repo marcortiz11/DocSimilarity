@@ -1,0 +1,1 @@
+@hellogames I just did 30ish jumps at max range toward the center and only moved the counter 8000 not the exspected 45,000 whats wrong?

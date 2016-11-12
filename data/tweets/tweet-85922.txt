@@ -1,0 +1,1 @@
+"Shard MySQL much earlier - Once you start relying on read slaves, start the timebomb countdown" @ Scaling Pinterest https://t.co/4lijSfwHxY

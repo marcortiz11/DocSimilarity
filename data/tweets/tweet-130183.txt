@@ -1,0 +1,5 @@
+bitstamp: $705.5
+btce: $701
+kraken: $706.22
+
+Average: $704.24

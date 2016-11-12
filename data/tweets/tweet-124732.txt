@@ -1,0 +1,1 @@
+Bluh, never mind, vsync was the culprit. Odd seeing as I normally get 60FPS even with all settings maxxed

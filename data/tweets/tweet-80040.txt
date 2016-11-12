@@ -1,0 +1,3 @@
+#nginx proxy_pass redirects instead of proxying
+#Tech #Internet #Question #HowTO
+https://t.co/9499f04aAp

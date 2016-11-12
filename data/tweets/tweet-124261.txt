@@ -1,0 +1,1 @@
+I wrote a vulkan driver today. Its 'vkCreateInstance' always returns ERROR_INITIALIZATION_FAILED.

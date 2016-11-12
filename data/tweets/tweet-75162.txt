@@ -1,0 +1,1 @@
+#DigitalBanking small vendor can use paytm/FreeCharge account to collect money we need to train them

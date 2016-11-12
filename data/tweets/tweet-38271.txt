@@ -1,0 +1,1 @@
+@richlatour Hi, Rich, you're able to sort by number of stops. You'll see non-stop flights show up if they're offered in that market.

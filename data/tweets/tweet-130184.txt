@@ -1,0 +1,1 @@
+I gradually begun to discover solutions, and was able to overcome the "Year 2000 problem" successfully. #cloud

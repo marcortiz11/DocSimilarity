@@ -1,0 +1,3 @@
+clear sky -&gt; overcast clouds
+temperature up 8°C -&gt; 12°C
+humidity down 81% -&gt; 62%

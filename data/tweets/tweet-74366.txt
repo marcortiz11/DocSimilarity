@@ -1,0 +1,8 @@
+*Would you like to reboot the daily*
+
+ &gt;Yes
+No
+.
+*Let me know if you want to be added to the daily*
+
+"THANK YOU FOR READING"

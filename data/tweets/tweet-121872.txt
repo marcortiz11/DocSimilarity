@@ -1,0 +1,1 @@
+15:46: Temperature: 10.8°C, DP: 10.6°C, Humidity: 99%, Rain (hourly) 0.0 mm, Pressure: 1019 hPa

@@ -1,0 +1,1 @@
+@FlatEarthCity Oh, and any tilt of a planar field (the ocean) in the Y axis is made null when the planar field is used as its own reference.
