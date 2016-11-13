@@ -16,7 +16,7 @@ struct Shuffler {
         coprime /= gcd(size, coprime);
     }
 
-    inline int getpos(int i){
+    inline int get(int i){
         return i*coprime % size;
     }
 };
