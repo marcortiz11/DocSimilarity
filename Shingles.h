@@ -4,6 +4,7 @@
 #include <set>
 #include <sstream>
 #include <fstream>
+#include <regex>
 
 using namespace std;
 
@@ -11,13 +12,14 @@ class Shingles{
 private:
 	map<string, set<int> > US; //UniversalShingles
 	string cluster;
-	void save(char*,int);
+	void save(char*,int,int);
+	int k;
 	//String->Int
-	int compress(string shingle);
+	int compress(string);
 public:
-	Shingles(string cluster);
-	void readCharShingle(int k);
-	void readWordShingle(int k, string stopWords);
+	Shingles(string, int);
+	void readCharShingle();
+	void readWordShingle(string);
 	map<string, set<int> >::iterator getBegin();
 	map<string, set<int> >::iterator getEnd();
 

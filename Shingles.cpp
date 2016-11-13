@@ -9,8 +9,12 @@ int Shingles::compress(string shingle){
 	return value % SIZE_HASH;*/
 }
 
-void Shingles::save(char* buffer, int id){
-	string shingle(buffer);
+void Shingles::save(char* buffer, int id, int idx){
+	string shingle="";
+	for (int i = 1; i <= (this->k); ++i)
+	{
+		shingle+=buffer[(idx+i)%(this->k)];
+	}
 	if(US.find(shingle) != US.end()){
 		US[shingle].insert(id);
 	}else{
@@ -19,47 +23,43 @@ void Shingles::save(char* buffer, int id){
 	}
 }
 
-Shingles::Shingles(string cluster){
+Shingles::Shingles(string cluster, int k){
 	this->cluster = cluster;
 }
 
-void Shingles::readCharShingle(int k){
+void Shingles::readCharShingle(){
 	int i = 1;
-	stringstream ss;
-	ss << this->cluster << "/" << std::to_string(i) << ".txt";
-	const char* path = (ss.str()).c_str();
 	bool mes_arxius = true;
-	char buff[k];
+	char buff[this->k];
 	while(mes_arxius)
 	{
-		char c; 
-		ifstream file(path);
-		int ch = 0;
-		cout << c;
-		while(ch < k and file.get(c)){
-				buff[ch] = c;
-				++ch;
-		}
-		if(ch >= k){
-			//guarda en el diccionario
-			save(buff,i);
-			while(file.get(c)){
-				for(int j = 0; j < k-1; ++j){
-					buff[j] = buff[j+1];
-				}
-				buff[k-1] = c;	
-				save(buff,i);
-			}	
-		} 
-		mes_arxius = ch > 0;
-		++i;
 		stringstream ss;
 		ss << this->cluster << "/" << std::to_string(i) << ".txt";
-		path = (ss.str()).c_str();
+		const char* path = (ss.str()).c_str();
+		ifstream file(path);
+		int ch = 0; char c;
+		while(ch < k and file.get(c)){
+				if(isalnum(c)){
+					buff[ch] = tolower(c);
+					++ch;
+				}
+		}
+		mes_arxius = ch > 0;
+		save(buff,i,ch);
+		while(file.get(c)){
+			if(isalnum(c)){
+				ch = (++ch)%k;
+				buff[ch] = tolower(c);	
+				save(buff,i,ch);
+			}
+		} 
+		++i;
+		cout << "Llegint document: " << i << "\n";
 	}
 }
 
-void Shingles::readWordShingle(int k, string stopWords){
+void Shingles::readWordShingle(string stopWords){
+	regex filter("[a-z][A-Z][0-9]"); 
 	//JUANCHO
 }
 
