@@ -15,7 +15,7 @@ protected:
 
 public:
     virtual bool isdone() = 0;
-    virtual void open(const char* filename) = 0;
+    virtual void open(const string& filename) = 0;
     virtual void close() = 0;
     string getshingle();
 };
@@ -34,7 +34,7 @@ private:
 
 public:
     bool isdone();
-    void open(const char* filename);
+    void open(const string& filename);
     void close();
     kcharstream(int k=3);
 };
@@ -72,7 +72,7 @@ string kcharstream::getnext() {
     return res;
 }
 
-void kcharstream::open(const char* filename) {
+void kcharstream::open(const string& filename) {
     ifs.open(filename, ifstream::in);
 }
 
@@ -96,7 +96,7 @@ private:
 
 public:
     bool isdone();
-    void open(const char* filename);
+    void open(const string& filename);
     void close();
     kwordstream(int k=3, set<string> stopwords=set<string>());
 };
@@ -143,7 +143,7 @@ string kwordstream::getnext() {
     return res;
 }
 
-void kwordstream::open(const char* filename) {
+void kwordstream::open(const string& filename) {
     ifs.open(filename, ifstream::in);
 }
 
@@ -158,7 +158,7 @@ kwordstream::kwordstream(int k, set<string> stopwords) {
 
 
 //***TESTS***
-void runchars(char* filename, bool v=false) {
+void runchars(string filename, bool v=false) {
     if (v) {
         cout << endl;
         cout << "CHARS _____________________________________" << endl;
@@ -175,7 +175,7 @@ void runchars(char* filename, bool v=false) {
     ss1.close();
 }
 
-void runwords(char* filename, bool v=false) {
+void runwords(string filename, bool v=false) {
     if (v) {
         cout << endl;
         cout << "WORDS _____________________________________" << endl;
@@ -199,9 +199,9 @@ void runwords(char* filename, bool v=false) {
 
 int main () {
 
-    char filename[50] = "data/tweets/tweet-1.txt";
-    runchars(filename);
-    runwords(filename);
+    string filename = "data/tweets/1.txt";
+    runchars(filename,true);
+    runwords(filename,true);
 
     return 0;
 }
