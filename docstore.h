@@ -1,6 +1,8 @@
 #include <set>
 #include <string>
 
+using namespace std;
+
 set<string> getwordsfromfile(string filename);
 
 class docstore {

@@ -11,18 +11,13 @@ class shinglestream {
 
 protected:
     int k;
-    virtual string getnext() = 0;
 
 public:
     virtual bool isdone() = 0;
     virtual void open(const string& filename) = 0;
     virtual void close() = 0;
-    string getshingle();
+    virtual string getshingle() = 0;
 };
-
-string shinglestream::getshingle() {
-    return getnext();
-}
 
 //Reads k-shingles composed of characters
 class kcharstream : public shinglestream {
@@ -30,13 +25,13 @@ class kcharstream : public shinglestream {
 private:
     ifstream ifs;
     list<char> buffer;
-    string getnext();
 
 public:
     bool isdone();
     void open(const string& filename);
     void close();
     kcharstream(int k=3);
+    string getshingle();
 };
 
 bool kcharstream::isdone() {
@@ -57,7 +52,7 @@ bool kcharstream::isdone() {
     return not ifs;
 }
 
-string kcharstream::getnext() {
+string kcharstream::getshingle() {
     if (isdone()) {
         cout << "Error: unexpected end of file" << endl;
         throw 0;
@@ -91,13 +86,13 @@ private:
     ifstream ifs;
     list<string> buffer;
     set<string> stopwords;
-    string getnext();
     string clean(string& dirtyboy);
 
 public:
     bool isdone();
     void open(const string& filename);
     void close();
+    string getshingle();
     kwordstream(int k=3, set<string> stopwords=set<string>());
 };
 
@@ -127,7 +122,7 @@ bool kwordstream::isdone() {
     return not ifs;
 }
 
-string kwordstream::getnext() {
+string kwordstream::getshingle() {
     if (isdone()) {
         cout << "Error: unexpected end of file" << endl;
         throw 0;
@@ -154,54 +149,4 @@ void kwordstream::close() {
 kwordstream::kwordstream(int k, set<string> stopwords) {
     this->k = k;
     this->stopwords = stopwords;
-}
-
-
-//***TESTS***
-void runchars(string filename, bool v=false) {
-    if (v) {
-        cout << endl;
-        cout << "CHARS _____________________________________" << endl;
-        cout << endl;
-    }
-    kcharstream ss1(3);
-    ss1.open(filename);
-    while (not ss1.isdone()) {
-        string tmp = ss1.getshingle();
-        if (v) {
-            cout << tmp << endl;
-        }
-    }
-    ss1.close();
-}
-
-void runwords(string filename, bool v=false) {
-    if (v) {
-        cout << endl;
-        cout << "WORDS _____________________________________" << endl;
-        cout << endl;
-    }
-    auto s = set<string>();
-    s.insert("got");
-    s.insert("99");
-    s.insert("would");
-    s.insert("more");
-    kwordstream ss2(3,s);
-    ss2.open(filename);
-    while (not ss2.isdone()) {
-        string tmp = ss2.getshingle();
-        if (v) {
-            cout << tmp << endl;
-        }
-    }
-    ss2.close();
-}
-
-int main () {
-
-    string filename = "data/tweets/1.txt";
-    runchars(filename,true);
-    runwords(filename,true);
-
-    return 0;
 }

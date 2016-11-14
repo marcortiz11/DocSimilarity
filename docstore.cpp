@@ -61,17 +61,3 @@ string docstore::getfilename() {
     index++;
     return filename;
 }
-
-int main() {
-
-    docstore ds;
-    string s = "data/tweets";
-    ds.setcollection(s);
-    while (not ds.isdone()) {
-        cout << ds.getfilename() << endl;
-    }
-    set<string> st = getwordsfromfile("data/english_stopwords.txt");
-    for (auto i : st) {
-        cout << i << endl;
-    }
-}
