@@ -1,7 +1,11 @@
 all: main.cpp Shingles.cpp
 	g++ -std=c++11 -o main.o main.cpp Shingles.cpp
 
-test_all: test_docstore test_shinglestream test_jaccard
+test_all: test_shuffler test_jaccard test_docstore test_shinglestream
+
+test_shuffler:
+	g++ -std=c++11 -o test/test_shuffler.o test/test_shuffler.cpp shuffler.cpp
+	./test/test_shuffler.o
 
 test_jaccard:
 	g++ -std=c++11 -o test/test_jaccard.o test/test_jaccard.cpp jaccard.cpp
