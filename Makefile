@@ -1,15 +1,19 @@
 all: main.cpp Shingles.cpp
 	g++ -std=c++11 -o main.o main.cpp Shingles.cpp
 
-test_all: test_docstore test_shinglestream
+test_all: test_docstore test_shinglestream test_jaccard
+
+test_jaccard:
+	g++ -std=c++11 -o test/test_jaccard.o test/test_jaccard.cpp jaccard.cpp
+	./test/test_jaccard.o
 
 test_docstore:
-	g++ -std=c++11 -o test/test_docstore test/test_docstore.cpp docstore.cpp
-	./test/test_docstore
+	g++ -std=c++11 -o test/test_docstore.o test/test_docstore.cpp docstore.cpp
+	./test/test_docstore.o
 
 test_shinglestream:
-	g++ -std=c++11 -o test/test_shinglestream test/test_shinglestream.cpp docstore.cpp shinglestream.cpp
-	./test/test_shinglestream
+	g++ -std=c++11 -o test/test_shinglestream.o test/test_shinglestream.cpp docstore.cpp shinglestream.cpp
+	./test/test_shinglestream.o
 
 clean:
-	rm -f *.o
+	find . -type f -name '*.o' -delete
