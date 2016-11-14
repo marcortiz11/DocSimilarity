@@ -35,7 +35,7 @@ for tweet in iterator:
     # We convert it back to the JSON format to print/score
     text = tweet["text"]
     outdir = "tweets"
-    filename = "tweet-" + str(150000-tweet_count) + ".txt"
+    filename = str(150000-tweet_count) + ".txt"
     f = open(outdir + "/" + filename, 'w')
     f.write(text)
     f.close()

@@ -8,7 +8,7 @@ words = f.read().splitlines()
 f.close()
 
 for i in range(20):
-    filename = "permutation-" + str(i+1) + ".txt"
+    filename = str(i+1) + ".txt"
     f = open(outdir + "/" + filename, 'w')
     shuffle(words)
     text = ' '.join(words)
