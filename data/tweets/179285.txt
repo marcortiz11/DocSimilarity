@@ -1,7 +1,0 @@
-My room is:
-CO2: 407ppm
-Pressure: 1020.17hPa
-Temperature: 22.12°C
-Humidity: 58.28%
-Luminosity: 0Lux
-2016/11/13-02:07:08

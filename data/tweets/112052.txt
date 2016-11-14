@@ -1,1 +1,2 @@
-RT @xbabegirwl: @MafiaFentyBR Lana @rihanna Favorite Album - Soul/R&amp;B #AMAs NAVY VOTE NOW
+RT @_ericelliott: "Program to an interface, not an implementation" applies to unit tests.
+Don't test private functions. See "black box test…

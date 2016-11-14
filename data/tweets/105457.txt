@@ -1,1 +1,3 @@
-JUNTO al #PuebloDeGrandesMisiones  @NicolasMaduro https://t.co/XATIfxxXJo .@elconde0069 .@AnubisU7 .@dppsuv
+#qemu: Sharing a disk image between windows guest(read-only) and host(rw)
+#Tech #News #HowTo
+https://t.co/PMjOUhsZZp

@@ -1,0 +1,1 @@
+Hot water tank temperatures at: 2016/11/12 18:10:05 top=47.5 side=39.5 middle=36.0 stat=36.5 bottom=20.437 board=21.312 loft=10.5 CPU=36.9

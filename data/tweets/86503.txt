@@ -1,1 +1,2 @@
-RT @DailyMemeSuppIy: Insidious (2010) https://t.co/RffNcaUOQj
+#Docker #TypeScript execution environment and REPL for #NodeJS LTS (6.9.1) Alpine Linux (yarn + npm versions) 16 MB
+https://t.co/FwgZSsnRW2

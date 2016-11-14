@@ -1,1 +1,3 @@
-RT @UAttires: Retweet if you would wear these hoodies! Get them at https://t.co/ektlZ9nSgn https://t.co/uKKEGPeRhJ
+#How to populate data from NSMutableArray into struct using Swift3
+#Tech #Internet #Question #HowTO
+https://t.co/atD4SZw2OM

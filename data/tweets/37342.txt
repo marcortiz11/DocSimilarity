@@ -1,1 +1,1 @@
-@SILVICULTRlX There have never been studies with this on humans. Myths like this are dangerous + may prevent people from getting treatment
+"Shard MySQL much earlier - Once you start relying on read slaves, start the timebomb countdown" @ Scaling Pinterest https://t.co/4lijSfwHxY

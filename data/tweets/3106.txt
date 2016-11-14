@@ -1,0 +1,2 @@
+StokerX Target Temperature (283.0) for sensor "Grill". 
+Time: 02:40:37

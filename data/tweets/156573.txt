@@ -1,1 +1,0 @@
-@maloukos1 @phpbb phpBB 3.2, currently in its RC stage, will be PHP 7.0 &amp; 7.1 compatible. It has been delayed due to various issues

@@ -1,1 +1,0 @@
-RT @rakyll: #golang tip: Never ever pass nil Context, even if the libraries you use allow you to do so! Use context.TODO() where you are no…

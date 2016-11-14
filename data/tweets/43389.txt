@@ -1,3 +1,1 @@
-#qemu: Sharing a disk image between windows guest(read-only) and host(rw)
-#Tech #News #HowTo
-https://t.co/PMjOUhsZZp
+@DrGaganGautam Nice one. All the best

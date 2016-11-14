@@ -1,2 +1,2 @@
-RT @MattMcMuscles: Terry Bogard In Real Life https://t.co/fLCqxJchaN
-Ahhh this takes me back
+RT @Cneelis: MSBuildShell, a Powershell Host running within MSBuild.exe.
+Bypass App Whitelisting using MSBuild.exe -&gt; By @subTee… 

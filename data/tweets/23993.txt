@@ -1,3 +1,1 @@
-#Android: Textview can't align vertically
-#Tech #News #HowTo
-https://t.co/bptprm7RCI
+Now do something

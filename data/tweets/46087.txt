@@ -1,0 +1,3 @@
+RT @russmiles: Reduce the Fragility of State using Event Sourcing:
+
+https://t.co/Ha2s3V2B9P

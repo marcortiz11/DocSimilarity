@@ -1,2 +1,7 @@
-RT @PolandMFA: Undersecretary of State R. Grey takes part in political consultations in Mexico
-https://t.co/oO4vrxpmkY https://t.co/g7Ohzbs…
+RT @Pablokz: if(criteria == null){
+   debate();
+}else{
+   try{
+     debate();
+   }catch(IllegalArgumentsException exc){
+     return false;…

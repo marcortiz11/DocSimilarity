@@ -1,7 +1,1 @@
-RT @Pablokz: if(criteria == null){
-   debate();
-}else{
-   try{
-     debate();
-   }catch(IllegalArgumentsException exc){
-     return false;…
+RT @WorIdStarComedy: My life be like https://t.co/gOxRSIazF0

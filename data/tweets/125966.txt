@@ -1,1 +1,1 @@
-RT @davidfrum: Read this. https://t.co/pt3d3qZ5Sp And remember “Do not be taken in by small signs of normality.” It’s not normal.
+Memory Management in MRI talk by @tenderlove was the perfect mix of humor and knowledge, like a super cool professor I wish had! #rubyconf

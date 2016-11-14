@@ -1,1 +1,1 @@
-RT @donaldmiller: Making a plan is not difficult. It’s rather easy, actually. It’s sticking to the plan that takes effort.
+Sending ECS Service Logs to the ELK Stack - Semaphore https://t.co/dKFK8bwQAE via @semaphoreci

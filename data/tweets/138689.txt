@@ -1,3 +1,1 @@
-@iwiaiwb @TalibKweli @TheMrsDarcy I wrote something for people like "her". Check it out. 
-
-https://t.co/ak92XiM2xZ
+#WindowsInsiders 14965 can't switch from Wi-Fi to mobile data, have to restart device, thought this was fixed long builds ago 😢

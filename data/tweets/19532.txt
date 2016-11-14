@@ -1,1 +1,1 @@
-#Contentmarketing: the sweet spot between your knowledge and your customer's pain point https://t.co/gcQENdU1mu
+@planetchili Just go with Ubuntu server. Has an ncurses menu to set up a LAMP stack right in the installer. Will work out of the box.

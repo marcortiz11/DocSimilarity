@@ -1,1 +1,0 @@
-2016-11-12 19:35:00.525171 ++ current data from 2016-11-12 19:32:43 - Temperature: 2.6 C - Humidity: 71 % - Wind: 0.0 km/h ++

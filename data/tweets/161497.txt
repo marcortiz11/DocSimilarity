@@ -1,1 +1,0 @@
-nixcraft: JayKuri Noop. FreeBSD has jails.

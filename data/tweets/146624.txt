@@ -1,1 +1,3 @@
-@senyorreporter it's a beautiful read.
+RT @EmojiHaskell: instance Functor Maybe where
+  🔙 🌁 (Just x) = Just (🌁 x)
+  🔙 _ Nothing  = Nothing

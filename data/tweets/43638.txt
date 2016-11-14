@@ -1,3 +1,1 @@
-RT @5SOSChartStats: 25 retweets 
-
-#AP405SOS
+I just published “Doing Some Batman Tools’ Docker Images Right” #docker @docker https://t.co/wuqMD6RJwX

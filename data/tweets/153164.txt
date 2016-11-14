@@ -1,1 +1,0 @@
-@akarnokd Any ideas? https://t.co/uoST2Dd1BH &amp; https://t.co/i7UeF8AFyT. Files good on Bintray but Travis error says didn't sync to central.

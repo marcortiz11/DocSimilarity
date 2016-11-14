@@ -1,1 +1,1 @@
-RT @smitharyy: Ottawa sees record snowfall with 51.2 cm in one day #OttawaSnow... https://t.co/lhs5Aky0iV
+02:00:27+3.4 [0 0 0 - 0] rates=[0,0,0,0,1] avg=[0,0,0,0,9] count=4054 ["relay off 1", "&gt;"] https://t.co/7XQ9Xzs50l
