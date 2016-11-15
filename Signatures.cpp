@@ -2,21 +2,44 @@
 #include <iostream>
 #include <cmath>
 
-Signatures::Signatures(int l, int buckets, int rows, int nDocs){
+Signatures::Signatures(int l, int nshingles, int nDocs){
 	for (int i = 0; i<l; ++i){
-		shuffler sf(rows);
+		shuffler sf(nshingles);
 		cout << sf.coprime << endl;
 		F.push_back(sf);
 	}
 	S = vector<vector<int> > (l, vector<int>(nDocs+1,-1));
-	this->rows = rows;
-	this->buckets = buckets;
+	this->nshingles = nshingles;
 	cout << "Threshold " << pow((1/double(buckets)),(1/double(double(l)/double(buckets)))) << endl;
+}
+
+void Signatures::set_buckets(int bs) {
+	this->buckets = bs;
+}
+
+int buckets_search(int a, int b, int nshingles, double t) {
+	float bands = (a+b)/2;
+	if (a==b) {
+		return bands;
+	}
+	double thresh = pow((1/bands), bands/nshingles);
+	if (thresh < t) {
+		return buckets_search(bands+1, b, nshingles, t);
+	} else if (thresh > t) {
+		return buckets_search(a, bands, nshingles, t);
+	} else {
+		return bands;
+	}
+}
+
+void Signatures::set_threshold(double t) {
+	int max = (nshingles-1)*2;
+	this->buckets = buckets_search(1, max, nshingles, t);
 }
 
 //Pre: it és un iterador al begin del diccionari
 void Signatures::computeSignatures(map<string, set<int> >::iterator it){
-	for(int i = 0; i < rows; ++i){
+	for(int i = 0; i < nshingles; ++i){
 		set<int> docsSet = it->second;
 		for(int h = 0; h < F.size(); ++h){
 			int r = F[h].shuffle(i);
@@ -36,7 +59,7 @@ void Signatures::computeSignatures(map<string, set<int> >::iterator it){
 	}
 }
 
-void Signatures::LHS(){
+void Signatures::LHS() {
 	int hashFun = F.size();
 	int docs = S[0].size();
 	int block = hashFun / this->buckets;
@@ -54,6 +77,10 @@ void Signatures::LHS(){
 			Buckets[minisignature].push_back(d);
 		}
 	}
+}
+
+void Signatures::LHS(int doc_id) {
+
 }
 
 double Signatures::computeSignatureSimilarity(int doc1, int doc2){
