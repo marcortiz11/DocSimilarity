@@ -3,13 +3,13 @@ all: mainJaccard mainSignatures mainLHS
 test_all: test_shuffler test_jaccard test_docstore test_shinglestream
 
 mainJaccard:
-	g++ -std=c++11 -o mainJaccard mainJaccard.cpp jaccard.cpp docstore.cpp shinglestream.cpp
+	g++ -std=c++11 -o mainJaccard.o mainJaccard.cpp jaccard.cpp docstore.cpp shinglestream.cpp
 
 mainLHS:
-	g++ -std=c++11 -o mainLHS mainLHS.cpp jaccard.cpp docstore.cpp shinglestream.cpp Signatures.cpp shuffler.cpp
+	g++ -std=c++11 -o mainLHS.o mainLHS.cpp jaccard.cpp docstore.cpp shinglestream.cpp Signatures.cpp shuffler.cpp
 
 mainSignatures:
-	g++ -std=c++11 -o mainSignatures mainSignatures.cpp jaccard.cpp docstore.cpp shinglestream.cpp Signatures.cpp shuffler.cpp
+	g++ -std=c++11 -o mainSignatures.o mainSignatures.cpp jaccard.cpp docstore.cpp shinglestream.cpp Signatures.cpp shuffler.cpp
 
 test_signature:
 	g++ -std=c++11 -o test/test_signatures.o test/test_signatures.cpp Signatures.cpp shuffler.cpp jaccard.cpp shinglestream.cpp
