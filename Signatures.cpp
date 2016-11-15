@@ -1,45 +1,57 @@
 #include "Signatures.h"
-#include <utility>
+#include <iostream>
 
 Signatures::Signatures(int l, int buckets, int rows, int nDocs){
-	F = vector<Shuffler>(l,Shuffler(rows));
-	S = vector<vector<int> > (rows, vector<int>(nDocs,-1));
+	for (int i = 0; i<l; ++i){
+		shuffler sf(rows);
+		cout << sf.coprime << endl;
+		F.push_back(sf);
+	}
+	S = vector<vector<int> > (l, vector<int>(nDocs+1,-1));
+	this->rows = rows;
+	this->buckets = buckets;
 }
 
 //Pre: it és un iterador al begin del diccionari
 void Signatures::computeSignatures(map<string, set<int> >::iterator it){
-	for(int i = 0; i < rows; ++i){
+	for(int i = 0; i <= rows; ++i){	
 		set<int> docsSet = it->second;
 		for(int h = 0; h < F.size(); ++h){
-			int r = F[h].getpos(i);
-			set<int> docsSet = it->second;
-			for (std::set<int>::iterator d=docsSet.begin(); d!=docsSet.end(); ++d)
-				if(S[h][(*d)] == -1 or S[h][(*d)] > r) S[h][(*d)] = r;
+			int r = F[h].shuffle(i);
+			for (std::set<int>::iterator d=docsSet.begin(); d!=docsSet.end(); ++d){
+				if(S[h][(*d)] == -1 or S[h][(*d)] > r) {
+					S[h][(*d)] = r;
+				}
 			}
 		}
 		++it;
 	}
+	for(int i = 0; i<S.size(); ++i){
+		for(int j = 1; j<S[0].size(); ++j){
+			cout << S[i][j] << ",";
+		}
+		cout << endl;
+	}
 }
 
 void Signatures::LHS(){
-	//Computa un set de pairs candidats
-	int hashFun = S.size(); 
+	int hashFun = F.size(); 
 	int docs = S[0].size();
 	int block = hashFun / this->buckets;
 	for(int b = 0; b < this->buckets; ++b){
-		vector<<vector<int> > Buckets = vector<vector<int> > ();
-		for(int d = 0; d < docs; ++d){
-			int pos = 0;
-			int i = 0;
-			for(int h = b*block; h < (b+1)*hashFun/docs; ++h){
-				pos += S[h][d] * (rows ^ i);
-				++i;
+		map<string, vector<int> > Buckets;
+		for(int d = 1; d < docs; ++d){
+			string minisignature = "";
+			for(int h = b*block; h < min(hashFun,(b+1)*block); ++h){ 
+				minisignature += to_string(S[h][d]);
 			}
-			pos = pos % block; //Position of sub-signature in a set of buckets
-			for(int j = 0; j < Buckets[pos].size(); ++j){
-				pair<int,int> p = Buckets[pos][j] < Buckets[pos][d] ? make_pair(j,d) : make_pair(d,j);
-				if(not candidates.count(p)) candidates.insert(p);
+			for(int j = 0; j < Buckets[minisignature].size(); ++j){
+				pair<int,int> p = (Buckets[minisignature][j] < d) ? make_pair(Buckets[minisignature][j],d) : make_pair(d,Buckets[minisignature][j]);
+				if(not candidates.count(p)) {
+					candidates.insert(p);
+				}
 			}
+			Buckets[minisignature].push_back(d);
 		}
 	}
 }
@@ -47,15 +59,25 @@ void Signatures::LHS(){
 double Signatures::computeSignatureSimilarity(int doc1, int doc2){
 	double equals = 0;
 	double total = 0;
-	for (int r = 0; r < rows; ++r)
+	//cout << "COMPUTING SIMILARITY BETWEEN " << doc1 << " AND " << doc2 <<endl;
+	for (int r = 0; r < F.size(); ++r)
 	{
-		equals += (S[r][doc1] == S[r][doc2] && S[r][doc1]) ? 1 : 0;
-		total += (S[r][doc2] || S[r][doc1]) ? 1 : 0;
+		equals += (S[r][doc1] == S[r][doc2]) ? 1 : 0;
+		total++;
 	}
+	//cout << equals << "/" << total << endl;
 	return equals/total;
 }
 
 
-map<string,pair<int,int> >::iterator Signatures::findPairs(){
+set<pair<int,int> >::iterator Signatures::getPairs(){
 	return candidates.begin();
 }
+
+set<pair<int,int> >::iterator Signatures::getEnd(){
+	return candidates.end();
+}
+
+
+
+ 
