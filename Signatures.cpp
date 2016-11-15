@@ -16,7 +16,7 @@ Signatures::Signatures(int l, int buckets, int rows, int nDocs){
 
 //Pre: it és un iterador al begin del diccionari
 void Signatures::computeSignatures(map<string, set<int> >::iterator it){
-	for(int i = 0; i <= rows; ++i){	
+	for(int i = 0; i < rows; ++i){
 		set<int> docsSet = it->second;
 		for(int h = 0; h < F.size(); ++h){
 			int r = F[h].shuffle(i);
@@ -37,14 +37,14 @@ void Signatures::computeSignatures(map<string, set<int> >::iterator it){
 }
 
 void Signatures::LHS(){
-	int hashFun = F.size(); 
+	int hashFun = F.size();
 	int docs = S[0].size();
 	int block = hashFun / this->buckets;
 	for(int b = 0; b < this->buckets; ++b){
 		map<string, vector<int> > Buckets;
 		for(int d = 1; d < docs; ++d){
 			string minisignature = "";
-			for(int h = b*block; h < min(hashFun,(b+1)*block); ++h){ 
+			for(int h = b*block; h < min(hashFun,(b+1)*block); ++h){
 				minisignature += to_string(S[h][d]);
 			}
 			for(int j = 0; j < Buckets[minisignature].size(); ++j){
@@ -77,7 +77,3 @@ set<pair<int,int> >::iterator Signatures::getPairs(){
 set<pair<int,int> >::iterator Signatures::getEnd(){
 	return candidates.end();
 }
-
-
-
- 
