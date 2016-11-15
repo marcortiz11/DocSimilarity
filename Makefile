@@ -3,6 +3,9 @@ all: main.cpp Shingles.cpp
 
 test_all: test_shuffler test_jaccard test_docstore test_shinglestream
 
+mainJaccard:
+	g++ -std=c++11 -o mainJaccard mainJaccard.cpp jaccard.cpp docstore.cpp shinglestream.cpp
+
 test_signature:
 	g++ -std=c++11 -o test/test_signatures.o test/test_signatures.cpp Signatures.cpp shuffler.cpp jaccard.cpp shinglestream.cpp
 	./test/test_signatures.o
