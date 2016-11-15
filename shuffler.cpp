@@ -17,8 +17,12 @@ public:
 
 shuffler::shuffler(int n){
     size = n;
-    coprime = rand();
-    coprime /= gcd(size, coprime);
+    int divisor = 1;
+    while (divisor <= 1) {
+        coprime = rand();
+        divisor = gcd(size, coprime);
+    }
+    coprime /= divisor;
     coprime = coprime % size;
 }
 
