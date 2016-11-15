@@ -8,7 +8,7 @@ $make all
 
 ## Contenido
 
-El repositorio contiene se encuentran funciones para calcular:
+El repositorio contiene funciones para calcular:
 
   - Similitud de Jaccard de dos documentos.
 
