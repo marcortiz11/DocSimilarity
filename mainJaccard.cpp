@@ -78,11 +78,24 @@ int main() {
 		}
 	}
 	
-	for (int i = 1; i <= num; ++i) {
-		for (int j = i+1; j <= num; ++j) {
-			cout << "Similitud de Jaccard: " << jaccard(shingles2[i],shingles2[j]) << endl;
+	cout << "Comparar un document amb els altres = ID_doc; comparar tots amb tots = 0" << endl;
+	int id;
+	cin >> id;
+	
+	if(not id){
+		for (int i = 1; i <= num; ++i) {
+			for (int j = i+1; j<=num; ++j){
+				cout << "Docs: " << i << "," << j<< " | Valor: " << jaccard(shingles2[i],shingles2[j]) << endl;
+			}
+		}
+	}else{
+		for(int i = 1; i<=num; ++i){
+			if (id != i) {
+				cout << "Docs: " << id << "," << i << " | Valor: " << jaccard(shingles2[id],shingles2[i]) << endl;
+			}
 		}
 	}
+	
 	
 	cout << "Temps d'execució: " << (double)(clock() - tStart)/CLOCKS_PER_SEC << endl;
 }

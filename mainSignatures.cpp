@@ -78,10 +78,21 @@ int main() {
 	
 	Signatures s(f,rows,num);
 	s.computeSignatures(shingles.begin());
+	cout << "Comparar un document amb els altres = ID_doc; comparar tots amb tots = 0" << endl;
+	int id;
+	cin >> id;
 	
-	for (int i = 1; i <= num; ++i) {
-		for (int j = i+1; j <= num; ++j) {
-			cout << "Docs: " << i << "," << j << " | Valor: " << s.computeSignatureSimilarity(i,j) << endl;
+	if(not id){
+		for (int i = 1; i <= num; ++i) {
+			for (int j = i+1; j<=num; ++j){
+				cout << "Docs: " << i << "," << j<< " | Valor: " << s.computeSignatureSimilarity(i,j) << endl;
+			}
+		}
+	}else{
+		for(int i = 1; i<=num; ++i){
+			if (id != i) {
+				cout << "Docs: " << id << "," << i << " | Valor: " << s.computeSignatureSimilarity(id,i) << endl;
+			}
 		}
 	}
 	

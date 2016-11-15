@@ -19,11 +19,11 @@ void getBasicInfo(string& path, int& num, bool& word, int& k){
 	cin >> k;
 }
 
-void getSignatureInfo(int& f, int& b){
+void getSignatureInfo(int& f, int& x, string& s){
 	cout << "Indica el tamany de les signatures:\n";
 	cin >> f;
-	cout << "Indica el nombre de buckets:\n";
-	cin >> b;
+	cout << "Indica el nombre de buckets (b NUM) o el threshold (t NUM):\n";
+	cin >> s >> x;
 }
 
 int main() {
@@ -80,22 +80,28 @@ int main() {
 			ss.close();
 		}
 	}
-	
-	int f, b;
-	getSignatureInfo(f,b);
+	int f, x;
+	string torb;
+	getSignatureInfo(f,x,torb);
 	Signatures s(f,rows,num);
-	s.set_buckets(b);
+	if (torb == "b") s.set_buckets(x);
+	else s.set_threshold(x);
+	
 	s.computeSignatures(shingles.begin());
-	s.LHS();
+	cout << "Comparar un document amb els altres = ID_doc; comparar tots amb tots = 0" << endl;
+	int id;
+	cin >> id;
+	if (id == 0) s.LHS();
+	else s.LHS(id);
 	set<pair<int,int> >::iterator beg = s.getPairs();
 	set<pair<int,int> >::iterator end = s.getEnd();
 	cout << "Possibles parelles:" << endl;
 	while (beg != end) {
-		cout << "\tSimilitud de Jaccard: " << jaccard(shingles2[(*beg).first], shingles2[(*beg).second]) << endl;
 		cout << "\tDocs: " << (*beg).first << "," << (*beg).second << " | Valor: " << s.computeSignatureSimilarity((*beg).first,(*beg).second) << endl;
 		cout << endl;
 		++beg;
 	}
-	cout << "Threshold: " << pow(1/double(b),(1/double(f/double(b)))) << endl;
+	if (torb == "b") cout << "Threshold: " << pow(1/double(x),(1/double(f/double(x)))) << endl;
+	else cout << "Threshold: " << x << endl;
 	cout << "Temps d'execució: " << (double)(clock() - tStart)/CLOCKS_PER_SEC << endl;
 }
