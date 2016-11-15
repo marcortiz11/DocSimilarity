@@ -1,9 +1,14 @@
 #include <cstdlib>
+#include <iostream>
 
 using namespace std;
 
-int gcd(int a, int b) {
-    return b == 0 ? a : gcd(b, a % b);
+int gcd ( int a, int b ) {
+  int c;
+  while ( a != 0 ) {
+     c = a; a = b%a;  b = c;
+  }
+  return b;
 }
 
 class shuffler {
@@ -24,6 +29,10 @@ shuffler::shuffler(int n){
         divisor = gcd(size, aux);
     }
     aux /= divisor;
+    while ((divisor = gcd(size, aux)) != 1) {
+        aux /= divisor;
+    }
+    coprime = aux;
 }
 
 long long int shuffler::shuffle(int i){
