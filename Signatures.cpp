@@ -5,12 +5,12 @@
 Signatures::Signatures(int l, int nshingles, int nDocs){
 	for (int i = 0; i<l; ++i){
 		shuffler sf(nshingles);
-		cout << sf.coprime << endl;
 		F.push_back(sf);
 	}
 	S = vector<vector<int> > (l, vector<int>(nDocs+1,-1));
 	this->nshingles = nshingles;
-	cout << "Threshold " << pow((1/double(buckets)),(1/double(double(l)/double(buckets)))) << endl;
+	cout << endl;
+	cout << "Threshold: " << pow((1/double(buckets)),(1/double(double(l)/double(buckets)))) << endl;
 }
 
 void Signatures::set_buckets(int bs) {
@@ -38,7 +38,9 @@ void Signatures::set_threshold(double t) {
 }
 
 //Pre: it és un iterador al begin del diccionari
-void Signatures::computeSignatures(map<string, set<int> >::iterator it){
+void Signatures::computeSignatures(map<string, set<int> >::iterator it) {
+	cout << endl;
+	cout << "Matriu:" << endl;
 	for(int i = 0; i < nshingles; ++i){
 		set<int> docsSet = it->second;
 		for(int h = 0; h < F.size(); ++h){
@@ -53,10 +55,11 @@ void Signatures::computeSignatures(map<string, set<int> >::iterator it){
 	}
 	for(int i = 0; i<S.size(); ++i){
 		for(int j = 1; j<S[0].size(); ++j){
-			cout << S[i][j] << ",";
+			cout << S[i][j] << " | \t";
 		}
 		cout << endl;
 	}
+	cout << endl;
 }
 
 void Signatures::LHS() {
@@ -83,11 +86,11 @@ void Signatures::LHS(int doc_id) {
 	int hashFun = F.size();
 	int docs = S[0].size();
 	int block = hashFun / this->buckets;
-	vector<int> miinisignature(nshingles);
-	for(int i = 0; i < this->nshingles; ++i) minisignature[i] = S[i][doc_i];
+	vector<int> minisignature(nshingles);
+	for(int i = 0; i < this->nshingles; ++i) minisignature[i] = S[i][doc_id];
 	for(int b = 0; b < this->buckets; ++b){
 		for(int d = 1; d < docs; d += (d+1==doc_id) ? 2 : 1){
-			int h = b*block
+			int h = b*block;
 			bool iguals = true;
 			while(h < min(hashFun,(b+1)*block) && iguals){
 				iguals = minisignature[h] == S[h][d];
