@@ -19,11 +19,14 @@ void getBasicInfo(string& path, int& num, bool& word, int& k){
 	cin >> k;
 }
 
-void getSignatureInfo(int& f, int& x, string& s){
+void getSignatureInfo(int& f, int& b, double& t, string& s){
 	cout << "Indica el tamany de les signatures:\n";
 	cin >> f;
-	cout << "Indica el nombre de buckets (b NUM) o el threshold (t NUM):\n";
-	cin >> s >> x;
+	cout << "Indica el nombre de buckets (b) o el threshold (t):\n";
+	cin >> s;
+	cout << "Dona el valor d'aquest" << endl;
+	if (s == "b") cin >> b;
+	else cin >> t;
 }
 
 int main() {
@@ -80,12 +83,13 @@ int main() {
 			ss.close();
 		}
 	}
-	int f, x;
+	int f, b;
+	double t;
 	string torb;
-	getSignatureInfo(f,x,torb);
+	getSignatureInfo(f,b,t,torb);
 	Signatures s(f,rows,num);
-	if (torb == "b") s.set_buckets(x);
-	else s.set_threshold(x);
+	if (torb == "b") s.set_buckets(b);
+	else s.set_threshold(t);
 	
 	s.computeSignatures(shingles.begin());
 	cout << "Comparar un document amb els altres = ID_doc; comparar tots amb tots = 0" << endl;
@@ -101,7 +105,7 @@ int main() {
 		cout << endl;
 		++beg;
 	}
-	if (torb == "b") cout << "Threshold: " << pow(1/double(x),(1/double(f/double(x)))) << endl;
-	else cout << "Threshold: " << x << endl;
+	if (torb == "b") cout << "Threshold: " << pow(1/double(b),(1/double(f/double(b)))) << endl;
+	else cout << "Threshold: " << t << endl;
 	cout << "Temps d'execució: " << (double)(clock() - tStart)/CLOCKS_PER_SEC << endl;
 }
