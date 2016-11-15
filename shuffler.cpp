@@ -10,22 +10,22 @@ class shuffler {
 
 public:
     int size;
-    int coprime;
+    long long int coprime;
     shuffler(int n);
-    int shuffle(int i);
+    long long int shuffle(int i);
 };
 
 shuffler::shuffler(int n){
-    size = n;
+    size = n+1;
     int divisor = 1;
-    while (divisor <= 1) {
-        coprime = rand();
-        divisor = gcd(size, coprime);
+    long long int aux = 1;
+    while (divisor == aux) {
+        aux = (rand() % 1000)+2; //can't be zero or 1
+        divisor = gcd(size, aux);
     }
-    coprime /= divisor;
-    coprime = coprime % size;
+    aux /= divisor;
 }
 
-int shuffler::shuffle(int i){
-    return i*coprime % size;
+long long int shuffler::shuffle(int i){
+    return ((i+1)*coprime % size)-1;
 }

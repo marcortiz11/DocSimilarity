@@ -4,7 +4,7 @@ class shuffler {
 
 public:
     int size;
-    int coprime;
+    long long int coprime;
     shuffler(int n);
-    int shuffle(int i);
+    long long int shuffle(int i);
 };
