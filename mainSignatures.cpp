@@ -1,18 +1,14 @@
-#include <time.h>
-#include <cstdlib>
-#include <iostream>
-#include <string>
-#include <set>
-#include <vector>
 #include "shinglestream.h"
+#include "Signatures.h"
+#include <time.h>
+#include <iostream>
 #include <cmath>
 #include "jaccard.h"
-#include <map>
 #include "docstore.h"
 
 using namespace std;
 
-void getBasicInfo(string& path, int& num, bool& word, int& k){
+void getBasicInfo(string& path, int& num, bool& word, int& k, int& f){
 	cout << "Indica el path dels documents (elteudirectori/):\n";
 	cin >> path;
 	cout << "Indica el nombre de documents a analitzar:\n";
@@ -21,15 +17,17 @@ void getBasicInfo(string& path, int& num, bool& word, int& k){
 	cin >> word;
 	cout << "De quin tamany són els shingles?\n";
 	cin >> k;
+	cout << "Indica el tamany de les signatures:\n";
+	cin >> f;
 }
 
 int main() {
 	clock_t tStart = clock();
-	int k, num;
+    int k, num, f;
     string path;
     bool word;
-    getBasicInfo(path,num,word,k);
-	map<string,set<int> > shingles;
+    getBasicInfo(path,num,word,k,f);
+    map<string,set<int> > shingles;
 	map<int,set<string> > shingles2;
 	int rows = 0;
 	
@@ -78,9 +76,12 @@ int main() {
 		}
 	}
 	
+	Signatures s(f,rows,num);
+	s.computeSignatures(shingles.begin());
+	
 	for (int i = 1; i <= num; ++i) {
 		for (int j = i+1; j <= num; ++j) {
-			cout << "Similitud de Jaccard: " << jaccard(shingles2[i],shingles2[j]) << endl;
+			cout << "Docs: " << i << "," << j << " | Valor: " << s.computeSignatureSimilarity(i,j) << endl;
 		}
 	}
 	

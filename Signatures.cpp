@@ -9,8 +9,6 @@ Signatures::Signatures(int l, int nshingles, int nDocs){
 	}
 	S = vector<vector<int> > (l, vector<int>(nDocs+1,-1));
 	this->nshingles = nshingles;
-	cout << endl;
-	cout << "Threshold: " << pow((1/double(buckets)),(1/double(double(l)/double(buckets)))) << endl;
 }
 
 void Signatures::set_buckets(int bs) {

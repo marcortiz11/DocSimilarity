@@ -57,14 +57,15 @@ int main() {
 	Signatures s(f,rows,20);
 	s.set_buckets(b);
 	s.computeSignatures(shingles.begin());
-	s.LHS();
-	set<pair<int,int> >::iterator beg = s.getPairs();
+	cout << s.computeSignatureSimilarity(16,18) << endl;
+	//s.LHS();
+	/*set<pair<int,int> >::iterator beg = s.getPairs();
 	set<pair<int,int> >::iterator end = s.getEnd();
 	cout << "Possible pairs:" << endl;
 	while(beg != end){
 		cout << "jaccard " << jaccard(shingles2[(*beg).first], shingles2[(*beg).second]) << endl;
 		cout << (*beg).first << " " << (*beg).second << " Similarity:" << s.computeSignatureSimilarity((*beg).first,(*beg).second) << endl;
 		++beg;
-	}
+	}*/
 	cout << "Threshold " << pow(1/double(b),(1/double(rows/double(b)))) << endl;
 }

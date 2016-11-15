@@ -1,6 +1,6 @@
 #include "shinglestream.h"
 #include "Signatures.h"
-#include <ctime>
+#include <time.h>
 #include <iostream>
 #include <cmath>
 #include "jaccard.h"
@@ -27,6 +27,7 @@ void getSignatureInfo(int& f, int& b){
 }
 
 int main() {
+	clock_t tStart = clock();
     int k, num;
     string path;
     bool word;
@@ -95,5 +96,6 @@ int main() {
 		cout << endl;
 		++beg;
 	}
-	cout << "Threshold: " << pow(1/double(b),(1/double(rows/double(b)))) << endl;
+	cout << "Threshold: " << pow(1/double(b),(1/double(f/double(b)))) << endl;
+	cout << "Temps d'execució: " << (double)(clock() - tStart)/CLOCKS_PER_SEC << endl;
 }
