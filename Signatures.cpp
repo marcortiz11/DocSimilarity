@@ -80,7 +80,25 @@ void Signatures::LHS() {
 }
 
 void Signatures::LHS(int doc_id) {
-
+	int hashFun = F.size();
+	int docs = S[0].size();
+	int block = hashFun / this->buckets;
+	vector<int> miinisignature(nshingles);
+	for(int i = 0; i < this->nshingles; ++i) minisignature[i] = S[i][doc_i];
+	for(int b = 0; b < this->buckets; ++b){
+		for(int d = 1; d < docs; d += (d+1==doc_id) ? 2 : 1){
+			int h = b*block
+			bool iguals = true;
+			while(h < min(hashFun,(b+1)*block) && iguals){
+				iguals = minisignature[h] == S[h][d];
+				++h;
+			}
+			if(iguals) {
+				pair<int,int> p = make_pair(doc_id, d);
+				candidates.insert(p);
+			}
+		}
+	}
 }
 
 double Signatures::computeSignatureSimilarity(int doc1, int doc2){
