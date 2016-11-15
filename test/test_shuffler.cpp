@@ -7,8 +7,8 @@
 using namespace std;
 
 int main() {
-    for (int j=0; j<1000; j++) {
-        int n = (rand() % 10000)+1; //can't be zero
+    for (int j=0; j<10000; j++) {
+        int n = (rand() % 1000)+1; //can't be zero
         set<int> s = set<int>();
         shuffler sf(n);
         for (int i=0; i<n; i++) {
@@ -16,6 +16,7 @@ int main() {
         }
         if (s.size() != n) {
             cout << "n: " << n << " size: " << s.size() << endl;
+            cout << "coprime: " << sf.coprime << endl;
             cout << "Shuffle produces collisions" << endl;
             throw 0;
         }
