@@ -1,5 +1,6 @@
 #include "Signatures.h"
 #include <iostream>
+#include <cmath>
 
 Signatures::Signatures(int l, int buckets, int rows, int nDocs){
 	for (int i = 0; i<l; ++i){
@@ -10,6 +11,7 @@ Signatures::Signatures(int l, int buckets, int rows, int nDocs){
 	S = vector<vector<int> > (l, vector<int>(nDocs+1,-1));
 	this->rows = rows;
 	this->buckets = buckets;
+	cout << "Threshold " << pow((1/double(buckets)),(1/double(double(l)/double(buckets)))) << endl;
 }
 
 //Pre: it és un iterador al begin del diccionari
@@ -47,9 +49,7 @@ void Signatures::LHS(){
 			}
 			for(int j = 0; j < Buckets[minisignature].size(); ++j){
 				pair<int,int> p = (Buckets[minisignature][j] < d) ? make_pair(Buckets[minisignature][j],d) : make_pair(d,Buckets[minisignature][j]);
-				if(not candidates.count(p)) {
-					candidates.insert(p);
-				}
+				candidates.insert(p);
 			}
 			Buckets[minisignature].push_back(d);
 		}
